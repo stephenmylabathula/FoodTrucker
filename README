@@ -1,0 +1,6 @@
+# FOOD TRUCKER
+
+
+pin.html: 
+
+	Use funtion addPins() to add a marker to the map. The latitude and longitude are grabbed from document elements.
