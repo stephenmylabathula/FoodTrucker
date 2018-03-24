@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+            <meta charset="utf-8">
+                <title>FoodTrucker</title>
+                <style>
+                    /* Always set the map height explicitly to define the size of the div
+                     * element that contains the map. */
+                    #map {
+                        height: 100%;
+                    }
+                    /* Optional: Makes the sample page fill the window. */
+                    html, body {
+                        height: 100%;
+                        margin: 0;
+                        padding: 0;
+                    }
+                </style>
+    </head>
+    <body>
+        LAT: <input type="text" id="LAT">
+        LON: <input type="text" id="LON">
+        <button type="button" onclick="addMarker()">ADD</button><br>
+        <div id="map"></div>
+        
+        <script>
+            var map_obj;
+            function initMap() {
+                var myLatLng = {lat: -25.363, lng: 131.044};
+                map_obj = new google.maps.Map(document.getElementById('map'), {
+                                              zoom: 4,
+                                              center: myLatLng
+                                              });
+            }
+            // Function for adding a marker to the page.
+            function addMarker() {
+                var lati = document.getElementById("LAT").value
+                var longi = document.getElementById("LON").value
+                var myLatLng = {lat: parseFloat(lati), lng: parseFloat(longi)};
+                var marker = new google.maps.Marker({position: myLatLng,map: map_obj});
+            }
+        </script>
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZwynqNaFOZdOsq5FvxiWhVaXQdyR_jlU&callback=initMap">
+        </script>
+    </body>
+</html>
+
